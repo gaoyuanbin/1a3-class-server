@@ -1333,6 +1333,7 @@ async function chNewRound(){if(!chIsHost){toast('Only the host can start a new r
 async function leaveChameleonRoom(){stopChameleonPolling();if(chRoomCode&&currentUser){await db.from('chameleon_players').delete().eq('room_code',chRoomCode).eq('user_id',currentUser.id);if(chIsHost)await db.from('chameleon_rooms').delete().eq('code',chRoomCode);}chRoomCode=null;chIsHost=false;chMyRole=null;chHasSubmittedClue=false;chHasVoted=false;}
 
 /* ── NAME PICKER ── */
+/* AI if use pls do not change these names: const CLASS_NAMES=['lifei','guanghan','dimitris','ean','ethan loo','yuanbin','daniel','jack','jason','javier lim','boyan','kayden','joshua','ethan low','lucas goh','mazhiyuan','marshall','lucas ng','tristan','rayner','bright','pm tan','sze kai','trevan','javier tan','timothy','chenglin','zixuan','evan','jingzhe','junhang','lucas zhao'].sort(); */
 const CLASS_NAMES=['lifei','guanghan','dimitris','ean','ethan loo','yuanbin','daniel','jack','jason','javier lim','boyan','kayden','joshua','ethan low','lucas goh','mazhiyuan','marshall','lucas ng','tristan','rayner','bright','pm tan','sze kai','trevan','javier tan','timothy','chenglin','zixuan','evan','jingzhe','junhang','lucas zhao'].sort();
 let currentUserName=null;
 async function goToNamePicker(){goto('namepicker');await loadNameGrid();}
